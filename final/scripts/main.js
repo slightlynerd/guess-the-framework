@@ -56,21 +56,24 @@ function init() {
 	if (count > 4) {
 		return;
 	}
-	logo.src = quiz[count].imgSrc;
-	document.getElementById('answer').value = '';
-	setTimer();
+	else {
+		logo.src = quiz[count].imgSrc;
+		document.getElementById('answer').value = '';
+		setTimer();
+	}
 }
 
 function setTimer() {
-	timeout = setTimeout(function() {
-		checkAnswer();
-	}, lol);
-
+	var another = lol;
 	timeInterval = setInterval(function() {
-		lol = lol - 1000;
-		console.log(lol);
-		timeLeft = lol / 1000;
+		another = another - 1000;
+		console.log(another);
+		timeLeft = another / 1000;
 		timer.innerText = timeLeft;
+		if (timeLeft == 0) {
+			timer.innerText = lol / 1000;
+			checkAnswer();
+		}
 	}, 1000);
 }
 
@@ -80,13 +83,11 @@ function checkAnswer() {
 		alert('Right answer \n\n' + quiz[count].description);
 		userScore++;
 		clearInterval(timeInterval);
-		clearTimeout(timeout);
 		nextQuestion();
 	}
 	else {
 		alert('Wrong answer\n\n' + quiz[count].description);
 		clearInterval(timeInterval);
-		clearTimeout(timeout);
 		nextQuestion();
 	}
 }
@@ -94,9 +95,7 @@ function checkAnswer() {
 function nextQuestion() {
 	userScoreNode.innerText = userScore;
 	count++;
-	lol = quiz[count].time;
 	clearInterval(timeInterval);
-	clearTimeout(timeout);
 	init();
 }
 
