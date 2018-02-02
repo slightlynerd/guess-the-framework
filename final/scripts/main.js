@@ -54,11 +54,13 @@ function off() {
 
 function init() {
 	if (count > 4) {
+		clearInterval(timeInterval);
 		return;
 	}
 	else {
 		logo.src = quiz[count].imgSrc;
 		document.getElementById('answer').value = '';
+		clearInterval(timeInterval);
 		setTimer();
 	}
 }
@@ -87,7 +89,6 @@ function checkAnswer() {
 	}
 	else {
 		alert('Wrong answer\n\n' + quiz[count].description);
-		clearInterval(timeInterval);
 		nextQuestion();
 	}
 }
