@@ -84,7 +84,6 @@ function checkAnswer() {
 	if (userAnswer.toLowerCase() == quiz[count].answer.toLowerCase()) {
 		alert('Right answer \n\n' + quiz[count].description);
 		userScore++;
-		clearInterval(timeInterval);
 		nextQuestion();
 	}
 	else {
@@ -96,7 +95,6 @@ function checkAnswer() {
 function nextQuestion() {
 	userScoreNode.innerText = userScore;
 	count++;
-	clearInterval(timeInterval);
 	init();
 }
 
