@@ -54,11 +54,13 @@ function off() {
 
 function init() {
 	if (count > 4) {
+		clearInterval(timeInterval);
 		return;
 	}
 	else {
 		logo.src = quiz[count].imgSrc;
 		document.getElementById('answer').value = '';
+		clearInterval(timeInterval);
 		setTimer();
 	}
 }
@@ -82,12 +84,10 @@ function checkAnswer() {
 	if (userAnswer.toLowerCase() == quiz[count].answer.toLowerCase()) {
 		alert('Right answer \n\n' + quiz[count].description);
 		userScore++;
-		clearInterval(timeInterval);
 		nextQuestion();
 	}
 	else {
 		alert('Wrong answer\n\n' + quiz[count].description);
-		clearInterval(timeInterval);
 		nextQuestion();
 	}
 }
@@ -95,7 +95,6 @@ function checkAnswer() {
 function nextQuestion() {
 	userScoreNode.innerText = userScore;
 	count++;
-	clearInterval(timeInterval);
 	init();
 }
 
