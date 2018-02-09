@@ -39,7 +39,7 @@ var timeLeft;
 var count = 0;
 var userScore = 0;
 
-var lol = quiz[count].time;
+var timeforQuestion = quiz[count].time;
 var timeout;
 var timeInterval;
 
@@ -66,14 +66,13 @@ function init() {
 }
 
 function setTimer() {
-	var another = lol;
+	var timeFrame = timeforQuestion;
 	timeInterval = setInterval(function() {
-		another = another - 1000;
-		console.log(another);
-		timeLeft = another / 1000;
+		timeFrame = timeFrame - 1000;
+		timeLeft = timeFrame / 1000;
 		timer.innerText = timeLeft;
 		if (timeLeft == 0) {
-			timer.innerText = lol / 1000;
+			timer.innerText = timeforQuestion / 1000;
 			checkAnswer();
 		}
 	}, 1000);
