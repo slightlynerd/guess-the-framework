@@ -33,6 +33,7 @@ var quiz = [
 var timer = document.getElementById('timer');
 var userScoreNode = document.getElementById('userScore');
 var logo = document.getElementById('logo');
+var totalScore = document.getElementById('totalScore');
 
 var count = 0;
 var userScore = 0;
@@ -43,7 +44,8 @@ var timeInterval;
 function init() {
     if (count > 4) {
         clearInterval(timeInterval);
-        return;
+        showSummary();
+        count = 0;
     }
     else {
         logo.src = quiz[count].imgSrc;
@@ -98,6 +100,17 @@ function on() {
 function off() {
     document.getElementById('game-intro').style.display = 'none';
     init();
+}
+
+function removeSummary() {
+    document.getElementById('game-summary').style.display = 'none';
+    userScoreNode.innerText = 0;
+    init();
+}
+
+function showSummary() {
+    document.getElementById('game-summary').style.display = "block";
+    totalScore.innerText = userScore;
 }
 
 on();
