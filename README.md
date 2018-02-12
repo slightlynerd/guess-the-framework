@@ -20,10 +20,14 @@ python -m SimpleHTTPServer 8080
 Guess the framework is still under development, and it is open for contributions. Feel free to send PR. If you have any questions, feel free to contact [Kelvin Gobo](https://twitter.com/kelvingobo)
 
 **General workflow**
-1. Fork it
+1. Fork the repo
 1. Create your feature branch (git checkout -b my-new-feature)
 1. Make your changes
-1. Run the tests, adding new ones for your code if necessary
 1. Commit your changes (git commit -am 'Added some feature')
 1. Push to the branch (git push origin my-new-feature)
 1. Create new Pull Request
+
+## Contributors
+See [list of contributors](https://github.com/kelvingobo/guess-the-framework/graphs/contributors)
+
+**Maintainer:** [Kelvin Gobo](https://github.com/kelvingobo)
