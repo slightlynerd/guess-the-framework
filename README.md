@@ -1,3 +1,4 @@
+![Picture of the app](http://res.cloudinary.com/codehacks/image/upload/v1518420708/untitled_page.png)
 # Guess the framework
 A simple quiz app where the user is shown a logo of a framework and is given a time frame to guess the correct answer.
 
@@ -16,7 +17,7 @@ cd guess-the-framework
 python -m SimpleHTTPServer 8080
 ```
 ## Contributing
-Project Guess the framework is still under development, and it is open for contributions. Feel free to send PR. If you have any questions, feel free to contact [Kelvin Gobo](https://twitter.com/kelvingobo)
+Guess the framework is still under development, and it is open for contributions. Feel free to send PR. If you have any questions, feel free to contact [Kelvin Gobo](https://twitter.com/kelvingobo)
 
 **General workflow**
 1. Fork it
