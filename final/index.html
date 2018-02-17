@@ -25,17 +25,28 @@
 		  </div>
 		  <div class="game-info">
 		  	<p class="score">Score: <span id="userScore">0</span>/5</p>
-		  	<p class="timer">Time left: <span id="timer">15</span></p>
+				<!--<p class="timer">Time left: <span id="timer">15</span></p>-->
+				<p class="timer">Time Left:</p>
+				<progress value="0" max="15" id="progressBar" style="height: 48px; width: 30%;"></progress>
 		  </div>
-  	</div>
-  	<div id="overlay" onclick="off()">
+  	
+  		<div id="overlay" onclick="off()">
   		<div id="overlay-text">
   			<p>This quiz tests your knowledge of javascript frameworks. You would see a logo and get a few seconds to guess the framework that has that logo. Goodluck!</p>
   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="off()">
 				  Start quiz
 				</button>
   		</div>
-  	</div>
+			</div>
+		
+			<div id="game-summary" onclick="removeSummary()">
+				<div id="game-summary-text">
+					<p>Blimey! Thank you for taking this quiz. You scored
+						<span id="totalScore">0</span> out of 5.</p>
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="removeSummary()">Try Again</button>
+				</div>
+			</div>
+		</div>
 
   	<script type="text/javascript" src="scripts/main.js"></script>
   </body>
