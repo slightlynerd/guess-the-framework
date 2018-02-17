@@ -21,11 +21,14 @@ Guess the framework is still under development, and it is open for contributions
 
 **General workflow**
 1. Fork the repo
-1. Create your feature branch (git checkout -b my-new-feature)
+1. Clone your forked copy (`git clone https://github.com/<your-github-username>/guess-the-framework`)
+1. Create your feature branch (`git checkout -b my-new-feature`)
 1. Make your changes
-1. Commit your changes (git commit -am 'Added some feature')
-1. Push to the branch (git push origin my-new-feature)
+1. Commit your changes (`git commit -am 'Added some feature'`)
+1. Push to the branch (`git push origin my-new-feature`)
 1. Create new Pull Request
+
+**NB: Please only make changes to files that are in the final folder.**
 
 ## Contributors
 See [list of contributors](https://github.com/kelvingobo/guess-the-framework/graphs/contributors)
