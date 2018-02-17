@@ -39,7 +39,7 @@ var timeLeft;
 var count = 0;
 var userScore = 0;
 
-var lol = quiz[count].time;
+//var lol = quiz[count].time;
 var timeout;
 var timeInterval;
 
@@ -54,15 +54,32 @@ function off() {
 
 function init() {
 	if (count > 4) {
-		return;
+		clearInterval(timeInterval);
+		showSummary();
+		count = 0;
+		userScore = 0;
 	}
 	else {
 		logo.src = quiz[count].imgSrc;
 		document.getElementById('answer').value = '';
+		clearInterval(timeInterval);
 		setTimer();
 	}
 }
 
+//Set timer function for the progress bar
+function setTimer() {
+	var timeleft = 15;
+	timeInterval = setInterval(function () {
+		document.getElementById("progressBar").value = 15 - --timeleft;
+		if (timeleft == 0) {
+			//clearInterval(downloadTimer);
+			checkAnswer();
+		}
+	}, 1000);
+}
+
+/* Set timer function for the old "text countdown timer"
 function setTimer() {
 	var another = lol;
 	timeInterval = setInterval(function() {
@@ -75,28 +92,37 @@ function setTimer() {
 			checkAnswer();
 		}
 	}, 1000);
-}
+} */
 
 function checkAnswer() {
 	let userAnswer = document.getElementById('answer').value;
 	if (userAnswer.toLowerCase() == quiz[count].answer.toLowerCase()) {
 		alert('Right answer \n\n' + quiz[count].description);
 		userScore++;
-		clearInterval(timeInterval);
+		userScoreNode.innerText = userScore;
 		nextQuestion();
 	}
 	else {
 		alert('Wrong answer\n\n' + quiz[count].description);
-		clearInterval(timeInterval);
 		nextQuestion();
 	}
 }
 
 function nextQuestion() {
-	userScoreNode.innerText = userScore;
+	//userScoreNode.innerText = userScore;
 	count++;
-	clearInterval(timeInterval);
 	init();
+}
+
+function removeSummary() {
+	document.getElementById('game-summary').style.display = 'none';
+	userScoreNode.innerText = 0;
+	init();
+}
+
+function showSummary() {
+	document.getElementById('game-summary').style.display = "block";
+	totalScore.innerText = userScore;
 }
 
 on();
